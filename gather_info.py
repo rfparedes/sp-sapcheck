@@ -16,13 +16,14 @@ class Server():
         try:
             return subprocess.check_output("""sh -c '. /etc/os-release; echo "$VERSION"'""", shell=True, universal_newlines=True).strip()
         except subprocess.CalledProcessError as e:
-            print('Cannot get OS version. Make sure /etc/os-release has VERSION="<INSTALLED_OS>" line')
+            print('Cannot get OS version. Make sure /etc/os-release has VERSION="<INSTALLED_OS>" line:',e)
         
     def get_platform(self):
         """Return server platform"""
         try:
-            return subprocess.run('dmidecode')
-
+            return subprocess.run(["dmidecode"])
+        except subprocess.CalledProcessError as e:
+            print('Cannot get dmidecode output: ',e)
 
 myserver = Server()
 print(myserver.get_os_version())
