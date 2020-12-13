@@ -19,7 +19,7 @@ class Server():
             print('Cannot get OS version. Make sure /etc/os-release has VERSION="<INSTALLED_OS>" line')
         
     def get_platform(self):
-    """Return server platform"""
+        """Return server platform"""
         try:
             return subprocess.run()
 
