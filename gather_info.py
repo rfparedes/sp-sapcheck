@@ -12,7 +12,7 @@ class Server():
         pass
 
     def get_os_version(self):
-    """Return OS version"""
+        """Return OS version"""
         try:
             return subprocess.check_output("""sh -c '. /etc/os-release; echo "$VERSION"'""", shell=True, universal_newlines=True).strip()
         except subprocess.CalledProcessError as e:
