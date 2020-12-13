@@ -21,7 +21,8 @@ class Server():
     def get_platform(self):
         """Return server platform"""
         try:
-            return subprocess.run()
+            return subprocess.run('dmidecode')
+
 
 myserver = Server()
 print(myserver.get_os_version())
